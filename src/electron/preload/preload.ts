@@ -18,17 +18,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	// Expose protected methods that allow the renderer process to use
 	// the ipcRenderer without exposing the entire object
 
-	// declare global {
-	// 	interface Window {
-	// 		api: {
-	// 			send: (channel: string, data: any) => void;
-	// 			invoke: (channel: string, data: any) => Promise<any>;
-	// 			on: (channel: string, func: Function) => void;
-	// 			once: (channel: string, func: Function) => void;
-	// 		};
-	// 	}
-	// }
-
 	contextBridge.exposeInMainWorld("api", {
 		send: (channel: string, data: any[]) => {
 			ipcRenderer.send(channel, data);

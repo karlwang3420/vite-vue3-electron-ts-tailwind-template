@@ -1,8 +1,5 @@
-import fs from "fs";
 import { join } from "path";
 import { app, BrowserWindow, ipcMain } from "electron";
-// import "../preload/preload";
-import Test from "../../model/test";
 
 const isDev = process.env.npm_lifecycle_event === "app:dev" ? true : false;
 
@@ -48,18 +45,11 @@ app.on("window-all-closed", () => {
 		app.quit();
 	}
 });
-const t = new Test();
+
 ipcMain.on("context-bridge-test", (event, data) => {
 	console.log(data);
-	// console.log(12);
 
 	setTimeout(() => {
 		event.sender.send("context-bridge-test2", "pong");
 	}, 2000);
 });
-// ipcMain.on("context-bridge-test2", (event, data) => console.log(3000));
-
-// setTimeout(() => {
-// 	console.log(12);
-// 	t.printI();
-// }, 5000);
