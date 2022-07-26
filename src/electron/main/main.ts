@@ -49,14 +49,15 @@ app.on("window-all-closed", () => {
 	}
 });
 const t = new Test();
-ipcMain.on("test", (event, data) => {
+ipcMain.on("context-bridge-test", (event, data) => {
 	console.log(data);
-	console.log(12);
+	// console.log(12);
+
 	setTimeout(() => {
-		t.printI();
-	}, 5000);
+		event.sender.send("context-bridge-test2", "pong");
+	}, 2000);
 });
-ipcMain.on("test2", (event, data) => console.log(3000));
+// ipcMain.on("context-bridge-test2", (event, data) => console.log(3000));
 
 // setTimeout(() => {
 // 	console.log(12);

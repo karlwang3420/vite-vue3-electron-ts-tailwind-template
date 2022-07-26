@@ -1,14 +1,18 @@
 <script setup lang="ts">
-	// import { ipcRenderer } from "electron";
-	import { ref } from "vue";
+// import { ipcRenderer } from "electron";
+import { ref } from "vue";
 
-	defineProps<{ msg: string }>();
+defineProps<{ msg: string }>();
 
-	const count = ref(0);
-	count.value = 2;
-	setTimeout(() => {
-		window.api.send("test", 2);
-	}, 2000);
+const count = ref(0);
+count.value = 2;
+setTimeout(() => {
+	window.api.send("context-bridge-test", "ping");
+}, 2000);
+
+window.api.on("context-bridge-test2", (val: any) => {
+	console.log(val);
+});
 </script>
 
 <template>
@@ -39,19 +43,19 @@
 </template>
 
 <style scoped>
-	a {
-		color: #42b983;
-	}
+a {
+	color: #42b983;
+}
 
-	label {
-		margin: 0 0.5em;
-		font-weight: bold;
-	}
+label {
+	margin: 0 0.5em;
+	font-weight: bold;
+}
 
-	code {
-		background-color: #eee;
-		padding: 2px 4px;
-		border-radius: 4px;
-		color: #304455;
-	}
+code {
+	background-color: #eee;
+	padding: 2px 4px;
+	border-radius: 4px;
+	color: #304455;
+}
 </style>
