@@ -21,11 +21,11 @@ window.addEventListener("DOMContentLoaded", () => {
   // the ipcRenderer without exposing the entire object
 
   contextBridge.exposeInMainWorld("api", {
-    send: (channel: string, data: any[]) => {
-      ipcRenderer.send(channel, data);
+    send: (channel: string, ...data: any[]) => {
+      ipcRenderer.send(channel, ...data);
     },
-    invoke: async (channel: string, data: any[]) => {
-      return ipcRenderer.invoke(channel, data);
+    invoke: async (channel: string, ...data: any[]) => {
+      return ipcRenderer.invoke(channel, ...data);
     },
     on: (channel: string, func: Function) => {
       // Deliberately strip event as it includes `sender`

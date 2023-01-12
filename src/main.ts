@@ -10,8 +10,8 @@ createApp(App).use(createPinia()).mount("#app");
 declare global {
   interface Window {
     api: {
-      send: (channel: string, data: any) => void;
-      invoke: (channel: string, data: any) => Promise<any>;
+      send: (channel: string, ...data: any[]) => void;
+      invoke: (channel: string, ...data: any[]) => Promise<any>;
       on: (channel: string, func: (...args: any[]) => void) => void;
       once: (channel: string, func: (...args: any[]) => void) => void;
     };

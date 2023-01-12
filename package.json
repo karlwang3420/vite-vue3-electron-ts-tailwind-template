@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "author": "Your Name",
-  "main": "dist/electron/main.js",
+  "main": "dist/electron/electron.js",
   "scripts": {
     "vite:dev": "vite",
     "vite:build": "vue-tsc --noEmit && vite build",
