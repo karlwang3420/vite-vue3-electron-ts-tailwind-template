@@ -1,13 +1,17 @@
-import { join } from "path";
+import { join, resolve } from "path";
 import { app, BrowserWindow, ipcMain } from "electron";
 
 const isDev = process.env.npm_lifecycle_event === "app:dev" ? true : false;
+const appPath = app.getAppPath();
 
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: isDev
+      ? resolve(appPath, "public/app_icon.ico")
+      : join(appPath, "resources/app_icon.ico"),
     webPreferences: {
       preload: join(__dirname, "./preload.js"),
       nodeIntegration: false,

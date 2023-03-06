@@ -1,0 +1,33 @@
+appId: "serial_emulator/com.micetek.www"
+asar: true
+productName: "Micetek Serial Emulator"
+icon: "public/app_icon.ico"
+
+directories:
+  buildResources: "public"
+  output: "release"
+
+files: dist
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+        # - ia32
+
+  artifactName: "${productName} Setup ${version}-${arch}.exe"
+
+# rpm:
+#   category: "Other"
+
+extraFiles:
+  - from: "public"
+    to: "resources"
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: false
+  createDesktopShortcut: true

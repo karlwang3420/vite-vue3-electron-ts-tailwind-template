@@ -1,8 +1,5 @@
 <script setup lang="ts">
-// import { ipcRenderer } from "electron";
 import { ref } from "vue";
-
-defineProps<{ msg: string }>();
 
 const count = ref(0);
 count.value = 2;
@@ -16,7 +13,7 @@ window.api.on("context-bridge-test2", (val: any) => {
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1 class="text-2xl font-bold">Hello World</h1>
 
   <p>
     Recommended IDE setup:
