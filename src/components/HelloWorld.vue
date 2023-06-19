@@ -32,7 +32,13 @@ window.api.on("context-bridge-test2", (val: any) => {
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
   </p>
 
-  <button type="button" @click="count++">count is: {{ count }}</button>
+  <button
+    type="button"
+    class="border p-1 m-1 rounded-xl bg-blue-300"
+    @click="count++"
+  >
+    count is: {{ count }}
+  </button>
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.

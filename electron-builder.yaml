@@ -1,6 +1,8 @@
-appId: "serial_emulator/com.micetek.www"
+appId: "app_name/com.micetek.www"
 asar: true
-productName: "Micetek Serial Emulator"
+productName: "Your Product Name"
+
+# this is the app icon, you can convert any image to .ico format, but size needs to be at least 256x256. To find quality icons, try flaticon.com
 icon: "public/app_icon.ico"
 
 directories:
